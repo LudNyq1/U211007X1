@@ -8,18 +8,23 @@ xhttp.responseType = 'json';
 xhttp.send();
 
 xhttp.onload = () => {
-    
+
     const data = xhttp.response;
     console.log(data);
+    
+    var imgUrl = data.articleImage;
 
-    let element1 = document.createElement('h1');
-    let element2 = document.createElement('p');
+    let elementH1 = document.createElement('h1');
+    let elementP = document.createElement('p');
+    let elementImg = document.createElement('img');
 
-    element1.textContent = data.headline;
-    element2.textContent = data.intro;
+    elementH1.textContent = data.headline;
+    elementP.textContent = data.intro;
+    elementImg.setAttribute('src', imgUrl);
 
-    document.getElementById('Exercise1').appendChild(element1);
-    document.getElementById('Exercise1').appendChild(element2);
+    document.getElementById('Exercise1').appendChild(elementH1);
+    document.getElementById('Exercise1').appendChild(elementP);
+    document.getElementById('Exercise1').appendChild(elementImg);
 }
 
 
