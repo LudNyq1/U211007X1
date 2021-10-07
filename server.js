@@ -9,7 +9,9 @@ const port = 8089;
 
 app.use(express.static('public'));
 
+
 app.use('/', indexRouter);
+app.use('/edit', indexRouter);
 
 app.listen(port);
 

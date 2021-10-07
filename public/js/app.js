@@ -17,14 +17,36 @@ xhttp.onload = () => {
     let elementH1 = document.createElement('h1');
     let elementP = document.createElement('p');
     let elementImg = document.createElement('img');
+    let elementBtn = document.createElement('button');
 
     elementH1.textContent = data.headline;
     elementP.textContent = data.intro;
     elementImg.setAttribute('src', imgUrl);
+    elementImg.id = 'duck';
+    elementBtn.textContent = 'hide';
+    elementBtn.style.position = 'fixed';
+    elementBtn.id = 'hide/show';
+
+    elementBtn.addEventListener('click', img_hide);
 
     document.getElementById('Exercise1').appendChild(elementH1);
     document.getElementById('Exercise1').appendChild(elementP);
+    document.getElementById('Exercise1').appendChild(elementBtn);
     document.getElementById('Exercise1').appendChild(elementImg);
+
+
+}
+
+const img_hide = () =>{
+    let elementImg = document.getElementById('duck');
+    let elementBtn = document.getElementById('hide/show');
+    if(elementImg.style.display == 'none'){
+        elementImg.style.display = 'block';
+        elementBtn.textContent = 'hide';
+    } else{
+        elementImg.style.display = 'none';
+        elementBtn.textContent = 'show';
+    }
 }
 
 
