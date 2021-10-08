@@ -5,10 +5,11 @@ const app = express();
 
 const indexRouter = require('./routes/indexRoute');
 
-const port = 8089;
+const port = process.env.PORT || 8089;
+
+app.use( express.urlencoded() );
 
 app.use(express.static('public'));
-
 
 app.use('/', indexRouter);
 app.use('/edit', indexRouter);

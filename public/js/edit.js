@@ -8,29 +8,40 @@ xhttp.send();
 xhttp.onload = () => {
     let data = xhttp.response;
     
+    let form = document.createElement('form');
+    form.id = 'formData';
+    form.name = 'formData';
+    form.method = 'POST';
+
     let tBox1 = document.createElement('input');
+    tBox1.id = 'tBox1';
+    tBox1.name = 'tBox1';
+
     let tBox2 = document.createElement('input');
+    tBox2.id = 'tBox2';
+    tBox2.name = 'tBox2';
+
     let tBox3 = document.createElement('input');
-    let btnUpdate = document.createElement('button');
+    tBox3.id = 'tBox3';
+    tBox3.name = 'tBox3';
+
+    let btnSubmit = document.createElement('input');
+    btnSubmit.type = 'submit';
+    btnSubmit.id = 'btnSubmit';
+    btnSubmit.name = 'btnSubmit';
+    btnSubmit.value = 'submit';
 
     tBox1.value = data.headline;
     tBox2.value = data.intro;
     tBox3.value = data.articleImage;
-    btnUpdate.textContent = 'Update';
-    
 
     tBox1.style.display = 'block';
     tBox2.style.display = 'block';
     tBox3.style.display = 'block';
-    btnUpdate.addEventListener('click', updateTextBoxes);
 
-    document.getElementById('Exercise2').appendChild(tBox1);
-    document.getElementById('Exercise2').appendChild(tBox2);
-    document.getElementById('Exercise2').appendChild(tBox3);
-    document.getElementById('Exercise2').appendChild(btnUpdate);
-
-}
-
-const updateTextBoxes = () => {
-    console.log('Button pushed');
+    document.getElementById('Exercise2').appendChild(form);
+    document.getElementById('formData').appendChild(tBox1);
+    document.getElementById('formData').appendChild(tBox2);
+    document.getElementById('formData').appendChild(tBox3);
+    document.getElementById('formData').appendChild(btnSubmit);
 }
